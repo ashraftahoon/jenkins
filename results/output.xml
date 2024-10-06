@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.12.6 on win32)" generated="2024-10-03T13:56:40.054339" rpa="false" schemaversion="5">
+<suite id="s1" name="Login Tests" source="C:\Users\lllllll\Downloads\PractiseRobotFramework\tests\login_tests.robot">
+<kw name="Open Login Page" owner="user_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-10-03T13:56:40.607378" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/auth/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-10-03T13:56:40.606374" elapsed="9.901240"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-10-03T13:56:50.507614" elapsed="0.058520"/>
+</kw>
+<status status="PASS" start="2024-10-03T13:56:40.605375" elapsed="9.961760"/>
+</kw>
+<test id="s1-t1" name="Invalid Login" line="13">
+<kw name="Login Template">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2024-10-03T13:56:50.575149" level="INFO">${json_data} = {'credentials': {'valid': {'username': 'Admin', 'password': 'admin123'}, 'invalid': {'username': 'InvalidUser', 'password': 'wrongPassword'}}}</msg>
+<var>${json_data}</var>
+<arg>${JSON_FILE_PATH}</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2024-10-03T13:56:50.571178" elapsed="0.003971"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2024-10-03T13:56:50.645141" level="INFO">${username_list} = ['InvalidUser']</msg>
+<var>${username_list}</var>
+<arg>${json_data}</arg>
+<arg>${username_path}</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2024-10-03T13:56:50.575149" elapsed="0.069992"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2024-10-03T13:56:50.672654" level="INFO">${password_list} = ['wrongPassword']</msg>
+<var>${password_list}</var>
+<arg>${json_data}</arg>
+<arg>${password_path}</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2024-10-03T13:56:50.646137" elapsed="0.026517"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-10-03T13:56:50.672654" level="INFO">${username} = InvalidUser</msg>
+<var>${username}</var>
+<arg>${username_list}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-10-03T13:56:50.672654" elapsed="0.000000"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-10-03T13:56:50.672654" level="INFO">${password} = wrongPassword</msg>
+<var>${password}</var>
+<arg>${password_list}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-10-03T13:56:50.672654" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Username: ${username}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-03T13:56:50.673653" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Password: ${password}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-03T13:56:50.674670" elapsed="0.000000"/>
+</kw>
+<kw name="Login To Application" owner="user_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-03T13:56:50.675653" level="INFO">Typing text 'InvalidUser' into text field 'name:username'.</msg>
+<msg time="2024-10-03T13:56:50.917612" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-10-03T13:56:50.917612" level="FAIL">Element with locator 'name:username' not found.</msg>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="FAIL" start="2024-10-03T13:56:50.675653" elapsed="0.244971">Element with locator 'name:username' not found.</status>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-03T13:56:50.920624" elapsed="0.000000"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-03T13:56:50.921622" elapsed="0.000000"/>
+</kw>
+<arg>${username}</arg>
+<arg>${password}</arg>
+<status status="FAIL" start="2024-10-03T13:56:50.674670" elapsed="0.246952">Element with locator 'name:username' not found.</status>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${expected_error}' == '${ERROR_MESSAGE}'</arg>
+<arg>Verify Error Message</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2024-10-03T13:56:50.921622" elapsed="0.000000"/>
+</kw>
+<arg>$.credentials.invalid.username</arg>
+<arg>$.credentials.invalid.password</arg>
+<arg>${ERROR_MESSAGE}</arg>
+<status status="FAIL" start="2024-10-03T13:56:50.569135" elapsed="0.352487">Element with locator 'name:username' not found.</status>
+</kw>
+<status status="FAIL" start="2024-10-03T13:56:50.567135" elapsed="0.355472">Element with locator 'name:username' not found.</status>
+</test>
+<test id="s1-t2" name="Valid Login" line="17">
+<kw name="Login Template">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2024-10-03T13:56:50.927614" level="INFO">${json_data} = {'credentials': {'valid': {'username': 'Admin', 'password': 'admin123'}, 'invalid': {'username': 'InvalidUser', 'password': 'wrongPassword'}}}</msg>
+<var>${json_data}</var>
+<arg>${JSON_FILE_PATH}</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2024-10-03T13:56:50.926611" elapsed="0.001003"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2024-10-03T13:56:50.956686" level="INFO">${username_list} = ['Admin']</msg>
+<var>${username_list}</var>
+<arg>${json_data}</arg>
+<arg>${username_path}</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2024-10-03T13:56:50.928617" elapsed="0.028069"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2024-10-03T13:56:50.981681" level="INFO">${password_list} = ['admin123']</msg>
+<var>${password_list}</var>
+<arg>${json_data}</arg>
+<arg>${password_path}</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2024-10-03T13:56:50.956686" elapsed="0.024995"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-10-03T13:56:50.982656" level="INFO">${username} = Admin</msg>
+<var>${username}</var>
+<arg>${username_list}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-10-03T13:56:50.982656" elapsed="0.000000"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-10-03T13:56:50.982656" level="INFO">${password} = admin123</msg>
+<var>${password}</var>
+<arg>${password_list}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-10-03T13:56:50.982656" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Username: ${username}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-03T13:56:50.982656" elapsed="0.000995"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Password: ${password}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-03T13:56:50.983651" elapsed="0.001073"/>
+</kw>
+<kw name="Login To Application" owner="user_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-03T13:56:50.985653" level="INFO">Typing text 'Admin' into text field 'name:username'.</msg>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T13:56:50.984724" elapsed="0.132977"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-10-03T13:56:51.118705" level="INFO">Typing password into text field '//input[@type="password"]'.</msg>
+<msg time="2024-10-03T13:56:51.175587" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T13:56:51.117701" elapsed="0.147929"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-10-03T13:56:51.265630" level="INFO">Clicking button '//button[@type="submit"]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T13:56:51.265630" elapsed="1.161279"/>
+</kw>
+<arg>${username}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2024-10-03T13:56:50.984724" elapsed="1.443168"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${expected_error}' == '${ERROR_MESSAGE}'</arg>
+<arg>Verify Error Message</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-10-03T13:56:52.427892" elapsed="0.000999"/>
+</kw>
+<arg>$.credentials.valid.username</arg>
+<arg>$.credentials.valid.password</arg>
+<status status="PASS" start="2024-10-03T13:56:50.925612" elapsed="1.505296"/>
+</kw>
+<status status="PASS" start="2024-10-03T13:56:50.924611" elapsed="1.507277"/>
+</test>
+<status status="FAIL" start="2024-10-03T13:56:40.058259" elapsed="12.376770"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="1" skip="0" id="s1" name="Login Tests">Login Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

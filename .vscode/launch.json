@@ -1,0 +1,33 @@
+{
+    "robot.pythonpath": [
+        "C:\\Path\\To\\Your\\Python\\Lib\\site-packages"
+    ],
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "robotframework-lsp",
+            "name": "Robot Framework: Launch .robot file",
+            "request": "launch",
+            "cwd": "^\"\\${workspaceFolder}\"",
+            "target": "^\"\\${file}\"",
+            "terminal": "integrated",
+            "env": {},
+            "args": [
+                "--outputdir", "results"  // Add this line to specify the results folder
+            ]
+        }
+    ]
+}

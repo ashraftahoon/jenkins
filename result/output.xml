@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.12.6 on win32)" generated="2024-10-03T13:56:08.117040" rpa="false" schemaversion="5">
+<suite id="s1" name="Add Title tests" source="C:\Users\lllllll\Downloads\PractiseRobotFramework\tests\Add_Title_tests.robot">
+<test id="s1-t1" name="Valid Login" line="8">
+<kw name="Login Template">
+<msg time="2024-10-03T13:56:08.466308" level="FAIL">No keyword with name 'Login Template' found. Did you try using keyword 'BuiltIn.Log' and forgot to use enough whitespace between keyword and arguments?</msg>
+<arg>$.credentials.valid.username</arg>
+<arg>$.credentials.valid.password</arg>
+<status status="FAIL" start="2024-10-03T13:56:08.466308" elapsed="0.000000">No keyword with name 'Login Template' found. Did you try using keyword 'BuiltIn.Log' and forgot to use enough whitespace between keyword and arguments?</status>
+</kw>
+<status status="FAIL" start="2024-10-03T13:56:08.462323" elapsed="0.004988">No keyword with name 'Login Template' found. Did you try using keyword 'BuiltIn.Log' and forgot to use enough whitespace between keyword and arguments?</status>
+</test>
+<test id="s1-t2" name="test add Job title" line="11">
+<kw name="Add Job Title" owner="Add_Job_Title">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2024-10-03T13:56:08.473304" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2024-10-03T13:56:08.473304" level="FAIL">No browser is open.</msg>
+<arg>${ADMIN_BTN}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2024-10-03T13:56:08.472305" elapsed="0.302895">No browser is open.</status>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<arg>${ADMIN_BTN}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-03T13:56:08.776196" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${JOB_LIST}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-03T13:56:08.776196" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${JOB_TITLE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-03T13:56:08.776196" elapsed="0.000000"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${ADD_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-03T13:56:08.776196" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-10-03T13:56:08.471303" elapsed="0.305899">No browser is open.</status>
+</kw>
+<status status="FAIL" start="2024-10-03T13:56:08.470307" elapsed="0.306895">No browser is open.</status>
+</test>
+<status status="FAIL" start="2024-10-03T13:56:08.120071" elapsed="0.660135"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="2" skip="0" id="s1" name="Add Title tests">Add Title tests</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-10-03T13:56:08.457306" level="ERROR">Error in file 'C:\Users\lllllll\Downloads\PractiseRobotFramework\tests\login_tests.robot' on line 7: Setting 'Suite Setup' is not allowed in resource file.</msg>
+<msg time="2024-10-03T13:56:08.458321" level="ERROR">Error in file 'C:\Users\lllllll\Downloads\PractiseRobotFramework\tests\Add_Title_tests.robot' on line 4: Error in file 'C:\Users\lllllll\Downloads\PractiseRobotFramework\tests\login_tests.robot' on line 11: Resource file with 'Test Cases' section is invalid.</msg>
+</errors>
+</robot>
